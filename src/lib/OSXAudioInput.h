@@ -13,11 +13,11 @@
 #define BUFFER_SIZE 4096
 #define SAMPLE_TYPE short
 #define MAX_NUMBER 32767
-#define SAMPLE_RATE 44100
+#define SAMPLE_RATE 48000
 
 class OSXAudioInput {
 	public:
-		typedef void (*OSXAudioCallback)(UInt32 size, char *message, void *userData);	
+		typedef void (*OSXAudioCallback)(UInt32 size, char *message, void *userData);
 
 		struct OSXAudioInData {
 			bool usingCallback;
@@ -39,7 +39,7 @@ class OSXAudioInput {
 		AudioQueueRef inQueue;
 		AudioQueueBufferRef inBuffers[NUM_BUFFERS];
 
-		static void inputCallback_(void *custom_data, AudioQueueRef queue, AudioQueueBufferRef buffer, 
+		static void inputCallback_(void *custom_data, AudioQueueRef queue, AudioQueueBufferRef buffer,
 				const AudioTimeStamp *start_time, UInt32 num_packets,
 				const AudioStreamPacketDescription *packet_desc);
 
